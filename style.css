@@ -1,0 +1,54 @@
+input[type='submit'], button,[aria-label]{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#edit-box{
+    max-width: 80%;
+    margin:auto;
+    padding: 16px;
+    background-color: rgb(249, 249, 249);
+    border-radius: 5px;
+}
+
+#error-box{
+    position:fixed;
+    width: 100%;
+    top:0;
+    right:0;
+    z-index:1;
+}
+
+.table-btn{
+    margin-right: 16px;
+    margin-left: auto;
+}
+
+.s-cell{
+    width: 180px;
+}
+
+a.closeInput{
+    float: right;
+}
+
+a.closeError{
+    float: right;
+}
+
+select.form-control {
+    -webkit-appearance: menulist;
+}
+
+.row{
+    margin-bottom: 8px;
+}
+
+.hidden{
+    display:none;
+}
+
+.card{
+    margin-top: 80px;
+    margin-bottom: 40px;
+}

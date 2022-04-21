@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+    <title>CRUD</title>
+</head>
+<body class="container">
+    <div class="alert alert-warning hidden" role="alert" id="error-box">
+        All fields must be filled 
+        <a onclick="CloseError()" aria-label="Close" class="closeError">&#10006;</a>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="header">
+                <h2>My everyday tasks</h2>
+                <h6>Number of things I need to do: <span id="counter"></span></h6>
+            </div>
+            <div class="form-group">
+            <form action="javascript:void(0);" method="post" onsubmit="app.Add()">
+                <div class="row">
+                    <div class="col-sm">    
+                        <label for="new-task">Name of Task</label>
+                        <input type="text" class="form-control" id="new-task" placegolder="Task">  
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="task-type"> Type of Task</label>
+                        <select id="task-type" class="form-control" name="task-type">
+                            <option value="" disabled selected>Choose one</option>
+                            <option value="Cleaning">Cleaning</option>
+                            <option value="Work">Work</option>
+                            <option value="Grocery">Grocery</option>
+                            <option value="Gathering">Gathering</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <div class="col-sm">
+                        <label for="urgency-level">Level of Urgency</label>
+                        <select id="urgency-level" class="form-control" name="urgency-level">
+                            <option value="" disabled selected>Choose one</option>
+                            <option value="Critical">Critical</option>
+                            <option value="Major">Major</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Minor">Minor</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <input type="submit" value="Add Task" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <table id="task-list" class="table table-light table-striped hidden">
+        <tr>
+            <th>Task</th>
+            <th>Type</th>
+            <th>Urgency Level</th>
+            <th class = "s-cell">Action</th>
+        </tr>
+    </table>
+
+    <div id="edit-box" class="hidden" role="aria-hidden">
+        <form action="javascript:void(0);" method="post" id="save-edit">
+            <div class="bar">
+                <a onclick="CloseInput()" aria-label="Close" class="closeInput">&#10006;</a>
+                <br>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <label for="edit-task">Name of Task</label>
+                    <input type="text" id="edit-task" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <label for="edit-task-type">Type of Task</label>
+                    <select id="edit-task-type" class="form-control" name="task">
+                        <option value="Cleaning">Cleaning</option>
+                        <option value="Work">Work</option>
+                        <option value="Grocery">Grocery</option>
+                        <option value="Gathering">Gathering</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div class="col-sm">
+                    <label for="edit-urgency-level">Level of Urgency</label>
+                    <select id="edit-urgency-level" class="form-control" name="urgency-level">
+                        <option value="Critical">Critical</option>
+                        <option value="Major">Major</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Minor">Minor</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <input type="submit" value="Save Changes" class="btn btn-primary">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
